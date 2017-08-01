@@ -8,3 +8,11 @@ if(bulletstyle=='line-through')
   document.getElementById(boy).style.textDecoration='line-through';
 
 }
+function clearAll()
+{
+	names = document.getElementsByClassName("task");
+	for (i=0; i<names.length; i++)
+	{
+		names[i].style.textDecoration="none";
+	}
+}
