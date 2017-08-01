@@ -1,0 +1,24 @@
+h1{
+  color: white;
+  background-color: grey;
+  font-style:italic;
+  padding:10px;
+}
+body{
+  background-color: #1e1f21;
+  color: white;
+  margin:5%;
+  padding:30px
+}
+h2{
+  font-style: italic;
+  background-color: grey;
+  padding:20px;
+
+}
+p{
+  font-style:italic;
+}
+li{
+  font-style: italic;
+}
