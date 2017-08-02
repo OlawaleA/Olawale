@@ -16,3 +16,16 @@ function clearAll()
 		names[i].style.textDecoration="none";
 	}
 }
+
+function addListItem(text)
+	{
+  list = document.querySelector('ul');
+  item = document.createElement('li');
+  item.innerText = text;
+  list.appendChild(item);
+}
+
+function AddItem(){
+	var i= prompt ("Enter the item to add list");
+	addListItem(i);
+}
