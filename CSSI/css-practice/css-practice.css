@@ -1,0 +1,10 @@
+#foo {color :red;}
+.bar {color: blue;}
+p {color:green;}
+<p id="foo" class="bar">Hello!</p>
+ul li {color: blue;}
+ul li {color: green;}
+<ul>
+  <li>One</li>
+  <li>Two</li>
+</ul>
