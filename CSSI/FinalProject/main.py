@@ -19,6 +19,17 @@ class MainHandler(webapp2.RequestHandler):
         #gif_url = parsed_giphy_dictionary[0]
         self.response.write(parsed_giphy_dictionary)
 
+class friendsHandler(webapp2.RequestHandler):
+    def get(self):
+        main_template = env.get_template('Friends.html')
+        self.response.out.write(main_template.render())
+class discoverHandler(webapp2.RequestHandler):
+    def get(self):
+        main_template = env.get_template('Discover.html')
+        self.response.out.write(main_template.render())
+
+
+
 class latlongHandler(webapp2.RequestHandler):
     def get(self):
         main_template = env.get_template('address.html')
@@ -62,7 +73,7 @@ class latlongHandler(webapp2.RequestHandler):
         prices = resp_dict['prices']
         string_prices=''
         for item in prices:
-            string_prices= string_prices + "<br/>" + item['localized_display_name'] + " :" + str(item['low_estimate']) + "-" + str(item['high_estimate']) + " "
+            string_prices= string_prices + "<br/>" + item['localized_display_name'] + " " + str(item['low_estimate']) + "-" + str(item['high_estimate']) + " "
 
         template_dicts = {'o_lat': o_template_dicts['lat'], 'o_long' : o_template_dicts['lng'], 'd_lat':d_template_dicts['lat'], 'd_long' : d_template_dicts['lng'], 'uber_quote': string_prices}
         self.response.write(lat_template.render(template_dicts))
@@ -122,9 +133,11 @@ class GipHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
+    ('/foooo', MainHandler),
     ('/gip', GipHandler),
-    ('/lat', latlongHandler),
+    ('/', latlongHandler),
     ('/map', MapHandler),
     ('/uber', UberHandler),
+    ('/friends',friendsHandler),
+    ('/discover', discoverHandler)
 ], debug=True)
