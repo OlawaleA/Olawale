@@ -62,7 +62,7 @@ class latlongHandler(webapp2.RequestHandler):
         prices = resp_dict['prices']
         string_prices=''
         for item in prices:
-            string_prices= string_prices + item['localized_display_name'] + " " + str(item['low_estimate']) + "-" + str(item['high_estimate']) + " "
+            string_prices= string_prices + "<br/>" + item['localized_display_name'] + " " + str(item['low_estimate']) + "-" + str(item['high_estimate']) + " "
 
         template_dicts = {'o_lat': o_template_dicts['lat'], 'o_long' : o_template_dicts['lng'], 'd_lat':d_template_dicts['lat'], 'd_long' : d_template_dicts['lng'], 'uber_quote': string_prices}
         self.response.write(lat_template.render(template_dicts))
